@@ -17,3 +17,15 @@ window.addEventListener("scroll", () => {
   }
 });
 
+
+  const cards = document.querySelectorAll('.project-card');
+  window.addEventListener('scroll', () => {
+    const trigger = window.innerHeight * 0.85;
+    cards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+      if (cardTop < trigger) {
+        card.classList.add('show');
+      }
+    });
+  });
+
