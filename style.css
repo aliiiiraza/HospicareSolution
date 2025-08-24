@@ -784,3 +784,61 @@ padding: 80px 20px;
   font-size: 18px;
   margin-bottom: 30px;
 }
+
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 80px;
+  padding: 20px 0;
+  background: #f9f9f9;
+}
+
+.slider-track {
+  display: flex;
+  width: max-content; /* jitni images hongi utna wide */
+  animation: slide 60s linear infinite; /* speed adjust karo (60s zyada images ke liye slow) */
+}
+
+.slider-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #333;
+  text-align: center;
+}
+
+.slider-track img {
+  width: 200px;          /* ek image ka size */
+  margin: 0 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  height: 200px;
+}
+
+/* Animation keyframes */
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* track ka half run karega, kyunke tumne images repeat ki hain */
+}
+
+/* Hover par pause */
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slider-track img {
+    width: 180px;
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-track img {
+    width: 140px;
+    margin: 0 6px;
+  }
+}
